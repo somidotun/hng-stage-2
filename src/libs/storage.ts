@@ -23,3 +23,9 @@ export const updateInvoice = (id: string, updated: Partial<Invoice>): void => {
     saveInvoices(invoices);
   }
 };
+// delete invoice by id
+export const deleteInvoice = (id: string): void => {
+  const invoices = getStoredInvoices();
+  const filtered = invoices.filter((inv) => inv.id !== id);
+  saveInvoices(filtered);
+};
