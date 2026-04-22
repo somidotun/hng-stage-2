@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { getInvoices } from "../../../services/invoiceServices";
 import type { Invoice } from "../../../types/Invoice";
 import useFilterStore from "../../../store/fieldState";
-import InvoiceCard from "./filterName";
 import EmptyEmail from "./emptyEmail";
+import InvoiceCard from "./InvoiceCard";
 
 const InvoiceList = () => {
   const [invoices, setInvoices] = useState<Invoice[]>([]);

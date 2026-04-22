@@ -1,8 +1,10 @@
+import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import useThemeStore from "./store/themeStore";
-import { Sidebar } from "./components/common/navbar/sideNav";
-import InvoiceList from "./components/common/body/invoice";
-import Nav from "./components/common/navbar/nav";
+import Home from "./pages/home";
+import InvoiceDetail from "./components/common/body/InvoiceDetail";
+import SideNav from "./components/common/navbar/sideNav";
+import EditInvoice from "./components/common/body/editInvoice";
 
 function App() {
   const { dark, toggleDark } = useThemeStore();
@@ -12,13 +14,14 @@ function App() {
   }, [dark]);
 
   return (
-    <div className="min-h-screen bg-[#F8F8FB] dark:bg-[#141625]">
-      <Sidebar dark={dark} onToggleDark={toggleDark} />
-      <main className="pt-16 lg:ml-[80px] ">
-        <Nav />
-        <InvoiceList />
-      </main>
-    </div>
+    <section className="min-h-screen bg-[#F8F8FB] dark:bg-[#141625]">
+      <SideNav dark={dark} onToggleDark={toggleDark} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/invoice/:id" element={<InvoiceDetail />} />
+        <Route path="/invoice/:id/edit" element={<EditInvoice />} />
+      </Routes>
+    </section>
   );
 }
 

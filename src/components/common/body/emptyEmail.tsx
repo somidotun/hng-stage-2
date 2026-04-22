@@ -1,4 +1,3 @@
-import React from "react";
 import empty from "@/../../src/assets/images/empty Email.svg";
 
 // type Props = {};

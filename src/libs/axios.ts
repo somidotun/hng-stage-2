@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/", // points to /public
+  baseURL: "/",
   headers: {
     "Content-Type": "application/json",
   },
